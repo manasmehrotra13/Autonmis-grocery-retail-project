@@ -1,0 +1,20 @@
+CUSTOMERS
+---used formula to generate different birth years and merged it with the existing "date of birth" column
+=RANDBETWEEN(1965, 2005)
+
+ATTRIBUTION MODELS
+---"attributed_revenue" column has digits between 0.22 to 140. so,
+---i used the formula to generate random numbers between 1028 to 2596 
+=ROUND(RAND()*(2596-1028)+1028, 2)
+
+CAMPAIGN PRODUCT LINK
+---used formula to generate random float numbers for attribute revenue column
+=ROUND(RAND()*(1734-928)+928, 2)
+
+HISTORICAL FORECASTS
+---use formula to extract quarter number from the date column
+="Q" & ROUNDUP(MONTH(A1)/3, 0) & " " & YEAR(A1)
+---used formula to calculate percentage change between forecasted value and the actual value
+= ROUND((G2 - H2) / G2 * 100,2)
+---used formula to calculate forecasted accuracy
+= B2 / A2 * 100

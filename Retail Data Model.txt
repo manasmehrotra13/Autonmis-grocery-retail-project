@@ -1,0 +1,427 @@
+Fact Tables
+
+1. SALES_TRANSACTIONS
+Tracks sales transactions across channels.
+
+Columns:
+Transaction_ID (PK)
+Customer_ID (FK)
+Product_ID (FK)
+Store_ID (FK)
+Channel_Type_ID (FK)
+Payment_Method_ID (FK)
+Transaction_Date (FK)
+Quantity
+Unit_Price
+Total_Amount
+Discount_Applied
+Tax_Amount
+
+2. CUSTOMER_ENGAGEMENT
+Tracks customer touchpoints and engagement.
+
+Columns:
+Engagement_ID (PK)
+Customer_ID (FK)
+Marketing_Channel_ID (FK)
+Campaign_ID (FK)
+Engagement_Date (FK)
+Engagement_Type (Email, Social Media, etc.)
+Channel_Type_ID (FK)
+Click_Through_Rate (CTR)
+Time_Spent (seconds)
+
+3. LOYALTY_TRANSACTIONS
+Tracks loyalty program usage and transactions.
+
+Columns:
+Loyalty_Transaction_ID (PK)
+Customer_ID (FK)
+Store_ID (FK)
+Transaction_ID (FK)
+Loyalty_Program_ID (FK)
+Loyalty_Points_Earned
+Loyalty_Points_Redeemed
+Loyalty_Balance
+
+4.INVENTORY_TRACKING
+Tracks stock levels for products in stores.
+
+Columns:
+Inventory_Tracking_ID (PK)
+Product_ID (FK)
+Store_ID (FK)
+Supplier_ID (FK)
+Stock_Level
+Reorder_Level
+Last_Updated_Date
+
+
+5.WEBSITE_TRAFFIC
+Tracks user activity on the e-commerce platform.
+
+Columns:
+Session_ID (PK)
+Customer_ID (FK)
+Product_ID (FK)
+Device_Type_ID (FK)
+Page_Viewed (e.g., Homepage, Product Page, etc.)
+Time_Spent (seconds)
+Session_Start_Time
+Session_End_Time
+
+
+6. PROMOTION_PERFORMANCE
+
+Columns:
+Promotion_ID (PK)
+Product_ID (FK)
+Store_ID (FK)
+Campaign_ID (FK)
+Channel_Type_ID (FK)
+Start_Date
+End_Date
+Regular_Price
+Promotional_Price
+Units_Sold
+Revenue_Generated
+Promotion_Cost
+ROI
+Conversion_Rate
+
+7. CUSTOMER_FEEDBACK
+
+Columns:
+Feedback_ID (PK)
+Customer_ID (FK)
+Product_ID (FK)
+Store_ID (FK)
+Transaction_ID (FK)
+Order_Channel_ID (FK)
+Feedback_Date
+Rating (1-5)
+Feedback_Type (Product, Service, Store, Website)
+
+
+8. HISTORICAL_FORECASTS
+Stores historical sales forecasts for comparison.
+Columns:
+Forecast_ID (PK)
+Product_ID (FK)
+Category_ID (FK)
+Store_ID (FK)
+Forecast_Date
+Forecast_Period
+Forecasted_Sales_Quantity
+Actual_Sales_Quantity
+Forecast_Error
+
+9. CUSTOMER_ACTIVITY_TRACKING
+Tracks engagement for churn analysis.
+
+Columns:
+Customer_ID (PK, FK)
+Last_Transaction_Date
+Last_Engagement_Date
+Churn_Risk_Score
+
+10. PRODUCT_ASSOCIATIONS
+Stores basket analysis results.
+
+Columns:
+Association_ID (PK)
+Product_1_ID (FK)
+Product_2_ID (FK)
+Support
+Confidence
+Lift
+
+11. ATTRIBUTION_MODELS
+Supports marketing attribution insights.
+
+Columns:
+Attribution_ID (PK)
+Customer_ID (FK)
+Transaction_ID (FK)
+Engagement_Channel
+Attributed_Revenue
+Engagement_Date
+
+12. FULFILLMENT_TRACKING
+Tracks order fulfillment status.
+
+Columns:
+Transaction_ID (PK, FK)
+Fulfillment_Status
+Fulfillment_Date
+Order_Type
+
+13. CAMPAIGN_PRODUCT_LINK
+Links campaigns to products.
+Columns:
+Campaign_Product_Link_ID (PK)
+Campaign_ID (FK)
+Product_ID (FK)
+Target_Audience
+Revenue_Attributed
+
+Dimension Tables
+
+1.CUSTOMERS
+Stores customer information.
+
+Columns:
+Customer_ID (PK)
+Full_Name
+Email
+Gender
+Date_of_Birth
+Address
+City
+State
+Country
+Loyalty_Program_Member (Yes/No)
+
+2. PRODUCTS
+Stores details about products.
+
+Columns:
+Product_ID (PK)
+Product_Name
+Category_ID (FK)
+Subcategory
+Brand
+Unit_Price
+Online_Exclusive (Yes/No)
+
+3. STORES
+Stores details of physical stores.
+
+Columns:
+Store_ID (PK)
+Store_Name
+City
+State
+Country
+Store_Type (Flagship, Franchise, etc.)
+
+4. MARKETING_CHANNELS
+Stores marketing channel details.
+
+Columns:
+Marketing_Channel_ID (PK)
+Channel_Name (Email, Social Media, TV Ads, etc.)
+Cost_Per_Engagement
+ROI_Percentage
+
+5. CAMPAIGNS
+Stores marketing campaign information.
+
+Columns:
+Campaign_ID (PK)
+Campaign_Name
+Marketing_Channel_ID (FK)
+Promotion_Type_ID (FK)
+Start_Date
+End_Date
+Budget
+Target_Audience
+Success_Metrics
+
+6. CHANNEL_TYPES
+Tracks interaction channels.
+
+Columns:
+Channel_Type_ID (PK)
+Channel_Type_Name (Online, Offline)
+
+7. LOYALTY_PROGRAMS
+Stores details of loyalty programs.
+
+Columns:
+Loyalty_Program_ID (PK)
+Program_Name
+Points_Earning_Rate
+Points_Redeeming_Rate
+Expiry_Period
+
+8. DEVICE_TYPES
+Tracks types of devices used by customers.
+
+Columns:
+Device_Type_ID (PK)
+Device_Name (Mobile, Desktop, Tablet, etc.)
+OS_Type (Android, iOS, Windows, etc.)
+
+9. CATEGORIES
+Stores product categories.
+
+Columns:
+Category_ID (PK)
+Category_Name
+Parent_Category
+
+10. SUPPLIERS
+Stores supplier details.
+
+Columns:
+Supplier_ID (PK)
+Supplier_Name
+Contact_Name
+Contact_Info
+
+11. PAYMENT_METHODS
+Tracks payment methods used.
+
+Columns:
+Payment_Method_ID (PK)
+Payment_Type (Credit Card, PayPal, Cash, etc.)
+Provider_Name
+
+12. PROMOTION_TYPES
+Stores promotion type details.
+
+Columns:
+Promotion_Type_ID (PK)
+Promotion_Type_Name (Discount, BOGO, Bundle, etc.)
+Description
+Minimum_Purchase_Required
+Maximum_Discount_Value
+
+13. TIME_DIMENSION
+Simplifies seasonal analysis and time-based reporting.
+
+Columns:
+Date_ID (PK)
+Date
+Day_Name
+Day_of_Week
+Month
+Quarter
+Year
+Is_Holiday (Yes/No)
+Season (Winter, Spring, Summer, Fall)
+
+
+Relationships
+1. SALES_TRANSACTIONS connects to:
+CUSTOMERS (Customer_ID)
+PRODUCTS (Product_ID)
+STORES (Store_ID)
+CHANNEL_TYPES (Channel_Type_ID)
+PAYMENT_METHODS (Payment_Method_ID)
+TIME_DIMENSION (Transaction_Date)
+
+2. CUSTOMER_ENGAGEMENT connects to:
+CUSTOMERS (Customer_ID)
+MARKETING_CHANNELS (Marketing_Channel_ID)
+CAMPAIGNS (Campaign_ID)
+CHANNEL_TYPES (Channel_Type_ID)
+TIME_DIMENSION (Engagement_Date)
+
+3.LOYALTY_TRANSACTIONS connects to:
+CUSTOMERS (Customer_ID)
+STORES (Store_ID)
+SALES_TRANSACTIONS (Transaction_ID)
+LOYALTY_PROGRAMS (Loyalty_Program_ID)
+
+4.INVENTORY_TRACKING connects to:
+PRODUCTS (Product_ID)
+STORES (Store_ID)
+SUPPLIERS (Supplier_ID)
+
+5.WEBSITE_TRAFFIC connects to:
+CUSTOMERS (Customer_ID)
+PRODUCTS (Product_ID)
+DEVICE_TYPES (Device_Type_ID)
+
+6.PROMOTION_PERFORMANCE connects to:
+PRODUCTS (Product_ID)
+STORES (Store_ID)
+CAMPAIGNS (Campaign_ID)
+CHANNEL_TYPES (Channel_Type_ID)
+PROMOTION_TYPES (Promotion_Type_ID)
+
+7.CUSTOMER_FEEDBACK connects to:
+CUSTOMERS (Customer_ID)
+PRODUCTS (Product_ID)
+STORES (Store_ID)
+SALES_TRANSACTIONS (Transaction_ID)
+CHANNEL_TYPES (Order_Channel_ID)
+FEEDBACK_TYPES (Feedback_Type_ID)
+
+8.TIME_DIMENSION connects to:
+SALES_TRANSACTIONS (Transaction_Date)
+CUSTOMER_ENGAGEMENT (Engagement_Date)
+
+9.HISTORICAL_FORECASTS connects to:
+PRODUCTS (Product_ID)
+CATEGORIES (Category_ID)
+STORES (Store_ID)
+
+10.CUSTOMER_ACTIVITY_TRACKING connects to:
+CUSTOMERS (Customer_ID)
+
+11.PRODUCT_ASSOCIATIONS connects to:
+PRODUCTS (Product_1_ID)
+PRODUCTS (Product_2_ID)
+
+12.ATTRIBUTION_MODELS connects to:
+CUSTOMERS (Customer_ID)
+SALES_TRANSACTIONS (Transaction_ID)
+
+13. FULFILLMENT_TRACKING connects to:
+SALES_TRANSACTIONS (Transaction_ID)
+
+14. CAMPAIGN_PRODUCT_LINK connects to:
+CAMPAIGNS (Campaign_ID)
+PRODUCTS (Product_ID)
+
+Additional Relationships:
+PRODUCTS connects to:
+CATEGORIES (Category_ID)
+CAMPAIGNS connects to:
+MARKETING_CHANNELS (Marketing_Channel_ID)
+PROMOTION_TYPES (Promotion_Type_ID)
+
+
+APIs
+From Fact Tables:
+1. WEBSITE_TRAFFIC
+2. INVENTORY_TRACKING
+3. PRODUCT_ASSOCIATIONS
+
+From Dimension Tables:
+1. DEVICE_TYPES
+
+CSV
+From Fact Tables:
+1. CAMPAIGN_PRODUCT_LINK
+
+From Dimension Tables:
+1. CAMPAIGNS
+2. SUPPLIERS
+
+DATABASE TABLES:
+From Fact Tables:
+1. SALES_TRANSACTIONS
+2. CUSTOMER_ENGAGEMENT
+3. LOYALTY_TRANSACTIONS
+4. PROMOTION_PERFORMANCE
+5. CUSTOMER_FEEDBACK
+6. HISTORICAL_FORECASTS
+7. ATTRIBUTION_MODELS
+8. FULFILLMENT_TRACKING
+9. CUSTOMER_ACTIVITY_TRACKING
+
+From Dimensions Tables:
+1. CUSTOMERS
+2. PRODUCTS
+3. CATEGORIES
+4. MARKETING_CHANNELS
+5. PAYMENT_METHODS
+6. PROMOTION_TYPES
+7. CHANNEL_TYPES
+8. LOYALTY_PROGRAMS
+9. STORES
+10. TIMEDATE
