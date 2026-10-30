@@ -25,3 +25,7 @@ Python (pandas, Faker, Mimesis), PostgreSQL (Neon), Snowflake, Sling, SQL, the A
 - two images of the analysis
 
 *Note: some product and category names are random placeholder text from the data generator.*
+
+---
+
+Part of my **internship at Autonmis** (Dec 2024 – May 2025). [See all my Autonmis repos](https://github.com/manasmehrotra13?tab=repositories&q=Autonmis&sort=name) · [Back to my profile](https://github.com/manasmehrotra13)
